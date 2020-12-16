@@ -108,7 +108,6 @@ READ_SECTOR:
 
 
 LOADER:
-
 	mov ax,msg_start
 	call PRINT						; Welcome message
 
@@ -121,7 +120,7 @@ LOADER:
 	mov dx,0x0						; buffer's offset
 	call READ_SECTOR				; read second sector
 
-	jmp 0x1000:0x0
+	jmp 0x1000:0x0					; jmp loaded sector
 
 	times 510 - ($-$$) db 0x0
 	dw 0xAA55						; bootable device signature
